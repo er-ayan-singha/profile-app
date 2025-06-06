@@ -22,7 +22,7 @@ source.include_patterns = assets/*,images/*
 version = 0.1
 
 # (list) Application requirements
-requirements = python3==3.9.22,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview
+requirements = python3==3.7.6,hostpython3==3.7.6,kivy==2.0.0,kivymd==0.104.2,pillow,urllib3,certifi,kivy_garden.mapview==1.0.5
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -40,13 +40,13 @@ fullscreen = 0
 android.permissions = INTERNET,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION
 
 # (int) Target Android API, should be as high as possible.
-android.api = 33
+android.api = 31
 
 # (int) Minimum API your APK will support.
 android.minapi = 21
 
 # (str) Android NDK version to use
-android.ndk = 25b
+android.ndk = 23b
 
 # (bool) If True, then skip trying to update the Android sdk
 android.skip_update = False
@@ -96,7 +96,7 @@ android.archs = armeabi-v7a
 android.enable_androidx = True
 
 # (str) python-for-android branch to use
-p4a.branch = master
+p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -131,6 +131,21 @@ name = Profile App
 
 # (bool) Bootstrap to use for android builds
 p4a.bootstrap = sdl2
+
+# (list) Garden requirements
+garden_requirements = mapview
+
+# (str) Gradle dependencies to add
+android.gradle_dependencies = "androidx.webkit:webkit:1.4.0"
+
+# (bool) Enable recipes update on each build
+p4a.local_recipes =
+
+# (str) Path to recipe directory used for local recipes
+#p4a.local_recipes =
+
+# (str) Extra command line arguments to pass when invoking pythonforandroid.toolchain
+#p4a.extra_args =
 
 [buildozer]
 
