@@ -25,8 +25,7 @@ source.include_patterns = assets/*,images/*
 version = 0.1
 
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview
+requirements = python3==3.9.16,hostpython3==3.9.16,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview,sdl2_ttf==2.0.15
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -96,12 +95,11 @@ android.copy_libs = 1
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 android.archs = arm64-v8a, armeabi-v7a
 
-# (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
-# contains an 'androidx' package, or any package from Kotlin source.
+# (bool) Enable AndroidX support
 android.enable_androidx = True
 
-# (str) python-for-android branch to use, defaults to master
-p4a.branch = master
+# (str) python-for-android branch to use
+p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -133,6 +131,9 @@ android.release_artifact = apk
 
 # (str) Application name
 name = Profile App
+
+# (bool) Bootstrap to use for android builds
+p4a.bootstrap = sdl2
 
 [buildozer]
 
