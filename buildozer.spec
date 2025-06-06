@@ -25,7 +25,8 @@ source.include_patterns = assets/*,images/*
 version = 0.1
 
 # (list) Application requirements
-requirements = python3==3.9.7,kivy==2.1.0,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview
+# comma separated e.g. requirements = sqlite3,kivy
+requirements = python3,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -95,8 +96,18 @@ android.copy_libs = 1
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 android.archs = arm64-v8a, armeabi-v7a
 
+# (bool) Enable AndroidX support. Enable when 'android.gradle_dependencies'
+# contains an 'androidx' package, or any package from Kotlin source.
+android.enable_androidx = True
+
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+p4a.branch = master
+
+# (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
+#p4a.commit = HEAD
+
+# (list) python-for-android whitelist
+android.enable_asset_updates = True
 
 # (str) OUYA Console category. Should be one of GAME or APP
 # If you leave this blank, OUYA support will not be enabled
