@@ -119,8 +119,11 @@ android.format = aab
 # (bool) Skip byte compile for .py files
 # android.no-byte-compile = False
 
+# (str) Application name
+name = Profile App
+
 # (str) The format used to package the app for release mode (aab or apk).
-android.release_artifact = aab
+android.release_artifact = apk
 
 [buildozer]
 
