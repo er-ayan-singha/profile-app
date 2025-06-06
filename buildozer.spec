@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = Modern Social Profile
+title = Profile App
 
 # (str) Package name
-package.name = modernsocialprofile
+package.name = profileapp
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.ayan
@@ -13,16 +13,16 @@ package.domain = org.ayan
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,ttf
+source.include_exts = py,png,jpg,kv,atlas
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = assets/*,images/*
+source.include_patterns = assets/*
 
 # (str) Application versioning
 version = 0.1
 
 # (list) Application requirements
-requirements = python3,kivy==2.0.0,kivymd==1.0.2,kivy_garden.mapview,pillow,requests,urllib3,certifi
+requirements = python3,kivy,kivymd,pillow,urllib3,certifi,kivy_garden.mapview
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -30,24 +30,23 @@ requirements = python3,kivy==2.0.0,kivymd==1.0.2,kivy_garden.mapview,pillow,requ
 # (str) Icon of the application
 #icon.filename = %(source.dir)s/data/icon.png
 
-# (list) Supported orientations
-# Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
+# (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
 
 # (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-# (int) Target Android API, should be as high as possible.
-android.api = 31
+# (list) Permissions
+android.permissions = INTERNET,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION
 
-# (int) Minimum API required
+# (int) Target Android API, should be as high as possible.
+android.api = 33
+
+# (int) Minimum API your APK will support.
 android.minapi = 21
 
-# (int) Android SDK version to use
-android.sdk = 31
-
 # (str) Android NDK version to use
-android.ndk = 23b
+android.ndk = 25b
 
 # (bool) If True, then skip trying to update the Android sdk
 # This can be useful to avoid excess Internet downloads or save time
@@ -75,40 +74,53 @@ android.entrypoint = org.kivy.android.PythonActivity
 # use that parameter to provide a filename from where to load your custom XML arguments:
 #android.extra_manifest_application_arguments = ./src/android/extra_manifest_application_arguments.xml
 
-# (list) Permissions
-android.permissions = INTERNET,ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION
+# (list) Copy these files to src/main/res/mipmap/; they will be picked up by the Android manifest
+#android.manifest.icon_foreground = %(source.dir)s/data/icon_fg.png
+#android.manifest.icon_background = %(source.dir)s/data/icon_bg.png
 
-# (list) features (adds uses-feature -tags to manifest)
-#android.features = android.hardware.usb.host
+# (str) launchMode to set for the main activity
+#android.manifest.launch_mode = standard
 
-# (int) Target Android API, should be as high as possible.
-#android.api = 27
+# (list) Android additional libraries to copy into libs/armeabi
+#android.add_libs_armeabi = libs/android/*.so
 
-# (int) Minimum API your APK will support.
-#android.minapi = 21
+# (bool) Indicate whether the screen should stay on
+# Don't forget to add the WAKE_LOCK permission if you set this to True
+#android.wakelock = False
 
-# (str) Android NDK directory (if empty, it will be automatically downloaded.)
-#android.ndk_path =
+# (str) Android logcat filters to use
+#android.logcat_filters = *:S python:D
 
-# (str) Android SDK directory (if empty, it will be automatically downloaded.)
-#android.sdk_path =
+# (bool) Copy library instead of making a libpymodules.so
+#android.copy_libs = 1
 
-# (str) ANT directory (if empty, it will be automatically downloaded.)
-#android.ant_path =
+# (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
+android.archs = arm64-v8a, armeabi-v7a
 
-# (bool) If True, then skip trying to update the Android sdk
-# This can be useful to avoid excess Internet downloads or save time
-# when an update is due and you just want to test/build your package
-# android.skip_update = False
+# (str) python-for-android branch to use, defaults to master
+#p4a.branch = master
 
-# (bool) If True, then automatically accept SDK license
-# agreements. This is intended for automation only. If set to False,
-# the default, you will be shown the license when first running
-# buildozer.
-# android.accept_sdk_license = False
+# (str) OUYA Console category. Should be one of GAME or APP
+# If you leave this blank, OUYA support will not be enabled
+#android.ouya.category = GAME
 
-# (str) Android entry point, default is ok for Kivy-based app
-#android.entrypoint = org.renpy.android.PythonActivity
+# (str) Filename of OUYA Console icon. It must be a 732x412 png image.
+#android.ouya.icon.filename = %(source.dir)s/data/ouya_icon.png
+
+# (str) XML file to include as an intent filters in <activity> tag
+#android.manifest.intent_filters = 
+
+# (str) Format used to package the APK
+android.format = aab
+
+# (list) Android additional aars to copy into libs/
+#android.add_aars = 
+
+# (bool) Skip byte compile for .py files
+# android.no-byte-compile = False
+
+# (str) The format used to package the app for release mode (aab or apk).
+android.release_artifact = aab
 
 [buildozer]
 
