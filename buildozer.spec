@@ -18,14 +18,11 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 # (list) List of inclusions using pattern matching
 source.include_patterns = assets/*,images/*
 
-# (list) List of exclusions using pattern matching
-# source.exclude_patterns = license,images/*/*.jpg
-
 # (str) Application versioning
 version = 0.1
 
 # (list) Application requirements
-requirements = python3==3.9.16,hostpython3==3.9.16,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview,sdl2_ttf==2.0.15
+requirements = python3==3.9.22,kivy==2.2.1,kivymd==1.1.1,pillow,urllib3,certifi,kivy_garden.mapview
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
@@ -93,18 +90,18 @@ android.entrypoint = org.kivy.android.PythonActivity
 android.copy_libs = 1
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = armeabi-v7a
 
 # (bool) Enable AndroidX support
 android.enable_androidx = True
 
 # (str) python-for-android branch to use
-p4a.branch = develop
+p4a.branch = master
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
 
-# (list) python-for-android whitelist
+# (bool) Enable Android asset updates
 android.enable_asset_updates = True
 
 # (str) OUYA Console category. Should be one of GAME or APP
