@@ -37,4 +37,10 @@ ENV/
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Project specific
+alarm_clock.py
+calculator.py
+create_placeholders.py
+*.bat 
